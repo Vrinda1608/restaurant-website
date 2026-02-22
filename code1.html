@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven | Fine Dining Restaurant</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- Custom CSS --- */
+        :root {
+            --primary-color: #d4a373; /* Gold/Bronze */
+            --dark-bg: #212529;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--dark-bg) !important;
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        .btn-reserve {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        .btn-reserve:hover {
+            background-color: #bc8a5f;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-bg);
+        }
+        .section-title .divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto;
+        }
+
+        /* Menu Cards */
+        .menu-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+        .menu-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .price-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        /* Reservation Section */
+        .reservation-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        .form-control {
+            padding: 12px;
+            border-radius: 0;
+            border: 1px solid #ddd;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#reservation" class="btn btn-reserve">Book a Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Taste the Extraordinary</h1>
+            <p class="hero-subtitle">Experience culinary excellence in every bite.</p>
+            <a href="#menu" class="btn btn-reserve btn-lg mt-3">View Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Chef Cooking" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="section-title text-start">
+                        <h2>Our Story</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <p class="lead text-muted">Since 1995, Gourmet Haven has been serving the finest ingredients sourced from local farms.</p>
+                    <p>Our chefs combine traditional techniques with modern innovation to create dishes that are both familiar and exciting. Whether you are here for a romantic dinner or a family celebration, we promise an unforgettable atmosphere and flavors that dance on your palate.</p>
+                    <img src="image\signature.png" alt="Signature" style="height: 50px; opacity: 0.7;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="section-title">
+                <h2>Featured Dishes</h2>
+                <div class="divider"></div>
+                <p class="text-muted">Discover our chef's specials for this week.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Item 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$24</span>
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Burger">
+                        <div class="card-body">
+                            <h4 class="card-title">Truffle Smash Burger</h4>
+                            <p class="card-text text-muted">Wagyu beef patty, truffle mayo, caramelized onions, aged cheddar on a brioche bun.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$32</span>
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Steak">
+                        <div class="card-body">
+                            <h4 class="card-title">Ribeye Steak</h4>
+                            <p class="card-text text-muted">12oz grass-fed ribeye, garlic herb butter, roasted asparagus, and garlic mash.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$18</span>
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Pasta">
+                        <div class="card-body">
+                            <h4 class="card-title">Creamy Carbonara</h4>
+                            <p class="card-text text-muted">Fresh handmade fettuccine, crispy pancetta, parmesan egg sauce, black pepper.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$45</span>
+                        <img src="image\A-heaping-amount-of-spaghetti-is-topped-with-meatballs-and-a-red-sauce-on-a-brown-plate-with-a-knife-and-fork-to-the-right-of-the-plate.-768.jpg" class="card-img-top menu-img" alt="Burger">
+                        <div class="card-body">
+                            <h4 class="card-title">Truffle Smash Burger</h4>
+                            <p class="card-text text-muted">Wagyu beef patty, truffle mayo, caramelized onions, aged cheddar on a brioche bun.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$30</span>
+                        <img src="image\download.jpg" class="card-img-top menu-img" alt="Burger">
+                        <div class="card-body">
+                            <h4 class="card-title">Truffle Smash Burger</h4>
+                            <p class="card-text text-muted">Wagyu beef patty, truffle mayo, caramelized onions, aged cheddar on a brioche bun.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card menu-card h-100">
+                        <span class="price-tag">$15</span>
+                        <img src="image\frittata-affogato2-1662413900.avif" class="card-img-top menu-img" alt="Burger">
+                        <div class="card-body">
+                            <h4 class="card-title">Truffle Smash Burger</h4>
+                            <p class="card-text text-muted">Wagyu beef patty, truffle mayo, caramelized onions, aged cheddar on a brioche bun.</p>
+                            <button class="btn btn-outline-dark btn-sm mt-2">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-dark px-5 py-2">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="reservation-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Book a Table</h2>
+                        <div class="divider"></div>
+                        <p class="text-muted">Reserve your spot for an evening to remember.</p>
+                    </div>
+                    
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="(123) 456-7890" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Time</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Number of Guests</label>
+                            <select class="form-select" required>
+                                <option selected disabled>Choose...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6+">6+</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary px-5 py-2">Reserve Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
